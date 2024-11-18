@@ -14,7 +14,12 @@ export default function AppMain(){
 
         setNewTask('')
     }
+   function handlerDeleteTask(e) {
+    const dataIndex = e.target.getAttribute('data-index')
+    const newTask = task.filter((task, index) => dataIndex != index ) 
 
+    setTask(newTask)
+   }
 
 
 
@@ -46,7 +51,11 @@ export default function AppMain(){
                 
                    <ul className="list-group">
 
-                       {task.map((task, index) =>  <li key={index} className="list-group-item">{task}</li> )}
+                       {task.map((task, index) =>  <li key={index} className="list-group-item d-flex justify-content-between">{task} <button onClick={handlerDeleteTask} data-index={index}>
+                       <i className="bi bi-trash"></i>
+                        </button></li> 
+                    
+                    )}
 
                    </ul>
             </div>
