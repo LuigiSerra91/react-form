@@ -24,7 +24,31 @@ export default function AppMain(){
         
         <main>
             <div className="container">
+                <h1>Lista dei post</h1>
+
+                <form onSubmit={addTask}>
+                <div className="mb-3">
+                     <label htmlFor="task" className='form-label'>Task</label>
+                      <div className="input-group mb-3">
+                      <input type="text" className='form-control' placeholder='Recipient'
+                      aria-label='Recipiement username'  aria-labelledby='button-addon2'
+                      value={newTask}
+                      onChange={e => setNewTask(e.target.value)}/>
+                    <button className='btn btn-outline-secondary' type='submit' id='button-addon2'>Send</button>
+
+            </div>
+                           <small id='taskHelperId' className='form-text text-muted'>type your new task</small>
+             </div>
+
+                </form>
+
                 
+                
+                   <ul className="list-group">
+
+                       {task.map((task, index) =>  <li key={index} className="list-group-item">{task}</li> )}
+
+                   </ul>
             </div>
         </main>
         
