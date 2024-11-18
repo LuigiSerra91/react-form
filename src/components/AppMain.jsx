@@ -15,7 +15,7 @@ export default function AppMain(){
         setNewTask('')
     }
    function handlerDeleteTask(e) {
-    const dataIndex = e.target.getAttribute('data-index')
+    const dataIndex = e.target.getAttribute('dataIndex')
     const newTask = task.filter((task, index) => dataIndex != index ) 
 
     setTask(newTask)
@@ -28,21 +28,21 @@ export default function AppMain(){
         <>
         
         <main>
-            <div className="container">
+            <div className="container bg-warning p-1">
                 <h1>Lista dei post</h1>
 
                 <form onSubmit={addTask}>
                 <div className="mb-3">
-                     <label htmlFor="task" className='form-label'>Task</label>
+                     <label htmlFor="task" className='form-label'>Post</label>
                       <div className="input-group mb-3">
                       <input type="text" className='form-control' placeholder='Recipient'
                       aria-label='Recipiement username'  aria-labelledby='button-addon2'
                       value={newTask}
                       onChange={e => setNewTask(e.target.value)}/>
-                    <button className='btn btn-outline-secondary' type='submit' id='button-addon2'>Send</button>
+                    <button className='btn  bg-primary' type='submit' id='button-addon2'>Send</button>
 
             </div>
-                           <small id='taskHelperId' className='form-text text-muted'>type your new task</small>
+                           <small id='taskHelperId' className='form-text text-muted'>type your new post</small>
              </div>
 
                 </form>
@@ -51,7 +51,7 @@ export default function AppMain(){
                 
                    <ul className="list-group">
 
-                       {task.map((task, index) =>  <li key={index} className="list-group-item d-flex justify-content-between">{task} <button onClick={handlerDeleteTask} data-index={index}>
+                       {task.map((task, index) =>  <li key={index} className="list-group-item d-flex justify-content-between">{task} <button onClick={handlerDeleteTask} dataIndex={index}>
                        <i className="bi bi-trash"></i>
                         </button></li> 
                     
